@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The Book - User Home Page
+{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="{{ url_for('logout') }}"><button class="btn btn-secondary btn-lg logout">Log Out</button></a>
+    </div>    
+
+
+    <header>
+        <h1 class="indexTtl">The Book</h1> 
+    </header>
+    
+    <section>
+        <form action="{{ url_for('home') }}" method="POST">
+            <div>
+                <label class="regloglabel" for="booksearch">Search a Book:</label>
+                <input autocomplete="off" autofocus class="booksearch" name="book" placeholder="Title, Authour or ISBN" type="text" id="booksearch">
+            </div>
+            <p>
+                <button type="submit" class="btn btn-secondary btn-lg">Give me Book</button>
+            </p>
+
+        </form>
+        {% if noquery %}
+            <div class="emptyquery">
+                Please fill in at least one character of book title or author or isbn.
+            </div>
+        {% endif %}
+
+        {% if empty %}
+            <div class="emptyquery">
+                Sorry, the is no book you are looking for in our database
+            </div>            
+        {% endif %}
+
+        {% if found %}
+            <p class="back">
+                <a href="{{ url_for('home') }}">Clear Search</a>
+            </p>
+            <h2 id="querytitle">Search result for <q>{{ query }}</q> :</h2>
+            <ul class="bookquery">
+        {% for book in found %}
+                <li><a href="{{ url_for('mybook', id=book.id) }}">{{ book.author }}, {{ book.title }}, {{ book.year }}, ISBN: {{ book.isbn }}</li></a>
+        {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+{% endblock %}

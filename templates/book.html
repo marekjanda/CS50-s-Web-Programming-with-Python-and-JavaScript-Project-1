@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The Book - {{ book["title"] }}
+{% endblock %}
+
+{% block body %}
+<div>
+    <a href="{{ url_for('logout') }}"><button class="btn btn-secondary btn-lg logout">Log Out</button></a>
+</div>  
+
+<header>
+    <h1 class="indexTtl">The Book</h1> 
+</header>
+    
+<section>
+    <h3>{{ book["title"] }} by {{ book["author"] }}</h3>
+    <ul class="bookinfo">
+        <li><b>Title: </b><i>{{ book["title"] }}</i></li>
+        <li><b>Author: </b><i>{{ book["author"] }}</i></li>
+        <li><b>Year: </b><i>{{ book["year"] }}</i></li>
+        <li><b>ISBN: </b><i>{{ book["isbn"] }}</i></li>
+        <li><b>GoodReads Average Rating: </b><i>{{ grdata['books'][0]['average_rating'] }}</i></li>
+        <li><b>GoodReads Number of Ratings: </b><i>{{ grdata['books'][0]['work_reviews_count'] }}</i></li>
+        <li><b>The Book Average Rating: </b><i>{{ average_score }}</i></li>
+        <li><b>The Book Number of Ratings: </b><i>{{ review_count }}</i></li>
+    </ul>
+</section>
+
+<section>
+    <form action="{{ url_for('mybook', id=book.id) }}" method="POST">
+        <p class="reviewlabel">
+            Your rating:
+        </p>
+        <div class="rate">
+            <input type="radio" id="5" name="rate" value="5" /><label for="5" title="5">5</label>
+            <input type="radio" id="4" name="rate" value="4" /><label for="4" title="4">4</label>
+            <input type="radio" id="3" name="rate" value="3" /><label for="3" title="3">3</label>
+            <input type="radio" id="2" name="rate" value="2" /><label for="2" title="2">2</label>
+            <input type="radio" id="1" name="rate" value="1" /><label for="1" title="1">1</label>
+        </div>
+        <br>
+        <div>
+            <p class="reviewlabel">
+                Your review:
+            </p>
+            <textarea name="review" class="form-control" id="userreview" rows="5"></textarea>
+        </div>
+        {% if notrated %}
+        <div class="emptyquery">
+            You must submit at least rating
+        </div>
+        {% endif %}
+                            
+        <p>
+            <button type="submit" class="btn btn-secondary btn-lg">Submit Review</button>
+        </p>
+    </form>
+    <p class="reviewlabel">
+        {% if message %}
+            <div class="submitstatus">
+                {{ message }}
+            </div>            
+        {% endif %}
+        {% if reviewed %}
+            <div class="submitstatus">
+                You've already reviewed this book
+            </div>   
+        {% endif %}
+    </p>
+   
+    <p class="back">
+        <a href="{{ url_for('home') }}">Back to first page</a>
+    </p>
+</section>
+<section>
+    {% for rev in reviews %}
+    <div>
+        <h5>Rating: {{ rev["rating"] }} / 5</h5>
+    </div>
+    <article class="review">
+        {{ rev["review"] }}
+    </article>
+    {% endfor %}
+</section>
+        
+{% endblock %}

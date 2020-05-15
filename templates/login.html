@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The Book - Log In
+{% endblock %}
+
+{% block body %}
+<header>
+    <h1 class="indexTtl">The Book</h1> 
+</header>
+
+<section>
+    <form action="{{ url_for('login') }}" method="POST">
+        <div>
+            <label class="regloglabel" for="username">Username:</label>
+            <input autocomplete="off" autofocus class="reglog" name="username" placeholder="Username" type="text" id="username">
+            <div class="reglogerror">
+            {% if nousername %}
+                Please provide Username
+            {% endif %}
+            {% if notanuser %}
+                Provided username DOES NOT exists
+            {% endif %} 
+            </div>
+        </div>
+
+        <div>
+            <label class="regloglabel" for="psw">Password:</label>
+            <input class="reglog" name="psw" id="psw" placeholder="Password" type="password">
+            <div class="reglogerror">
+                {% if nopassword %}
+                    Please provide password
+                {% endif %}
+                {% if wrongpsw %}
+                    Wrong password
+                {% endif %}
+            </div>
+        </div>
+
+        <p>
+            <button type="submit" class="btn btn-secondary btn-lg">Log in</button>
+        </p>
+        
+    </form>
+    <p class="back">
+        <a href="{{ url_for('index') }}">Back to first page</a>
+    </p>
+</section>
+{% endblock %}s

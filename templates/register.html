@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The Book - Register
+{% endblock %}
+
+{% block body %}
+<header>
+    <h1 class="indexTtl">The Book</h1> 
+</header>
+
+<section>
+    <form action="{{ url_for('register') }}" method="POST">
+        <div>
+            <label class="regloglabel" for="username">Choose Your User Name:</label>
+            <input autocomplete="off" autofocus class="reglog" name="username" placeholder="Username" type="text" id="username">
+            <div class="reglogerror">
+                {% if nousername %}
+                    Please provide Username
+                {% endif %}
+                {% if taken %}
+                    Sorry the user name is already taken
+                {% endif %} 
+            </div>
+        </div>
+
+        <div>
+            <label class="regloglabel" for="psw">Choose Your Password:</label>
+            <input class="reglog" name="psw" id="psw" placeholder="Password" type="password">
+            <div class="reglogerror">
+                {% if nopassword %}
+                    Please provide password
+                {% endif %}
+            </div>
+        </div>
+
+        <div>
+            <label class="regloglabel" for="pswcnf">Repeat Your Password:</label>
+            <input class="reglog" name="pswcnf" id="pswcnf" placeholder="Confirm your password" type="password">
+            <div class="reglogerror">
+                {% if nopasswordconf %}
+                    Please repeat your password
+                {% endif %}
+                {% if nomatch %}
+                    Passwords did not match
+                {% endif %}
+            </div>
+        </div>
+
+        <p>
+            <button type="submit" class="btn btn-secondary btn-lg">Register</button>
+        </p>
+        
+    </form>
+    <p class="back">
+        <a href="{{ url_for('index') }}">Back to first page</a>
+    </p>
+</section>
+{% endblock %} 

@@ -1,0 +1,226 @@
+html, body.index {
+    background-color: rgb(34, 33, 33);
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(211, 210, 210);
+}
+
+.indexTtl {
+    margin-top: 1%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11rem;
+    color: rgb(211, 210, 210);
+}
+
+footer {
+    vertical-align: bottom;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: gray;
+    text-align: center;
+}
+
+.btn.btn-secondary.btn-lg {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 37.5%;
+    margin-right: 37.5%;
+    text-align: left;
+    border-radius: 2rem;
+    width: 25%;
+    display: flex; 
+    justify-content: center;
+}
+
+.reglog {
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+    /* center form controls */
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 2rem;
+    width: 50%;
+    display: flex; 
+    justify-content: center;
+}
+
+.reglog:focus, .booksearch:focus {
+    outline: none;
+    box-shadow: 0 0 0 3pt blue;
+}
+
+div label.regloglabel {
+    margin-left: 25%;
+    margin-top: 1.2%;
+    font-size: 1.7rem;
+    color: rgb(211, 210, 210);
+}
+    
+div.reglogerror, div.emptyquery {
+    margin-left: 25%;
+    margin-top: 1.2%;
+    font-size: 1rem;
+    color: rgb(211, 210, 210);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.back {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+a:link, a:active, a:visited {
+    color: rgb(211, 210, 210)
+}
+
+.btn.btn-secondary.btn-lg.logout {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 70%;
+    margin-right: 5%;
+    text-align: left;
+    border-radius: 2rem;
+    width: 10rem;
+    justify-content: center;
+    float: right;
+}
+
+.booksearch {
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+    /* center form controls */
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 2rem;
+    width: 50%;
+    display: flex; 
+    justify-content: center;
+}
+
+h2#querytitle {
+    margin-left: 25%;
+    margin-top: 1.2%;
+}
+
+.bookquery {
+    margin-left: 25%;
+    margin-top: 1.2%;
+    font-size: 1.7rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 1%;
+    font-size: 1.5rem;
+}
+
+div.emptyquery {
+    margin-left: 25%;
+    margin-top: 1.2%;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin-left: 15%;
+}
+
+.bookinfo {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 1.3rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.form-control#userreview {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: 1.2rem;
+    width: 60%;
+    display: flex; 
+    justify-content: center;
+}
+
+.reviewlabel {
+    justify-content: center;
+    margin-left: 15%;
+    margin-top: 5%;
+    font-size: 1.3rem;
+    white-space:nowrap;
+}
+
+
+.rate {
+    float: left;
+    margin-left: 35%;
+    margin-bottom: 2%;
+    height: 46px;
+}
+
+.rate:not(:checked) > input {
+    visibility: hidden;
+}
+
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.submitstatus, #invalidlog {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.review {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    border: 0.1rem solid rgba(177, 175, 175, 0.342)ay;
+    border-radius: 5px;
+    background-color: rgba(177, 175, 175, 0.342);
+    margin-top: 0.5%;
+    margin-bottom: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: left;
+    padding: 1em;
+}
+
+h5 {
+    margin-left: 15%;
+}
